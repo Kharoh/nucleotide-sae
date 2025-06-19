@@ -1,192 +1,212 @@
 {
-  "timestamp": "2025-06-19T21:23:21.508739",
+  "timestamp": "2025-06-19T22:38:29.502232",
   "config": {
-    "model": "ModelConfig(model_name='InstaDeepAI/nucleotide-transformer-500m-1000g', max_length=1000, device='cpu', cache_dir='./model_cache')",
+    "model": "ModelConfig(model_name='InstaDeepAI/nucleotide-transformer-500m-1000g', max_length=1000, device='cuda', cache_dir='./model_cache')",
     "sae": "SAEConfig(dictionary_size=1024, sparsity_penalty=0.0001, learning_rate=0.0003, batch_size=1024, n_epochs=5, validation_split=0.1, feature_threshold=1e-06)",
     "attribution": "AttributionConfig(n_attribution_steps=1000, attribution_method='integrated_gradients', baseline_method='zero', noise_level=0.1)",
-    "experiment": "ExperimentConfig(output_dir='./outputs', log_dir='./logs', n_sequences_analysis=10, intervention_strength=2.0, top_k_features=50, random_seed=42)",
+    "experiment": "ExperimentConfig(output_dir='./outputs', log_dir='./logs', n_sequences_analysis=5, intervention_strength=2.0, top_k_features=50, random_seed=42)",
     "visualization": "VisualizationConfig(figure_size=(12, 8), dpi=300, color_palette='viridis', save_format='png', interactive_plots=True)",
     "data": "DataConfig(sequence_examples=['ATGCGATCGTAGCTGATCGATCGATCGATCG', 'TATAATGCGATCGTAGCTGATCGATCGATCG', 'ATGCGATCGTAGCTGATCGATCGCCCGGGAT', 'ATGAAAGGATCCGATCGATCGATCGATCGAT', 'ATGCGATCGTAGCTGATCGATCGATCGTAAA'], motif_annotations=None, genomic_regions=['promoter', 'enhancer', 'exon', 'intron', '3_prime_utr', '5_prime_utr', 'intergenic'])"
   },
-  "sequences_analyzed": 10,
+  "sequences_analyzed": 5,
   "stages": {
     "embeddings": {
       "n_layers": 24,
       "hidden_size": 1280,
       "layer_statistics": {
         "0": {
-          "mean_activation": -0.0036038372199982405,
-          "std_activation": 0.27207517623901367,
+          "mean_activation": -0.005170833319425583,
+          "std_activation": 0.2653038203716278,
           "sparsity": 0.0,
-          "norm": 9.73298454284668
+          "norm": 9.490745544433594
         },
         "1": {
-          "mean_activation": 0.06008258834481239,
-          "std_activation": 2.847132682800293,
+          "mean_activation": 0.05432112142443657,
+          "std_activation": 2.842014789581299,
           "sparsity": 0.0,
-          "norm": 101.8428955078125
+          "norm": 101.64498901367188
         },
         "2": {
-          "mean_activation": 0.09552787989377975,
-          "std_activation": 2.7647249698638916,
+          "mean_activation": 0.08859506994485855,
+          "std_activation": 2.7518105506896973,
           "sparsity": 0.0,
-          "norm": 98.82044982910156
+          "norm": 98.37523651123047
         },
         "3": {
-          "mean_activation": 0.09868541359901428,
-          "std_activation": 2.796396017074585,
+          "mean_activation": 0.08879180997610092,
+          "std_activation": 2.803786516189575,
           "sparsity": 0.0,
-          "norm": 100.0724105834961
+          "norm": 100.33326721191406
         },
         "4": {
-          "mean_activation": 0.09554305672645569,
-          "std_activation": 2.8578877449035645,
+          "mean_activation": 0.08160419017076492,
+          "std_activation": 2.890019178390503,
           "sparsity": 0.0,
-          "norm": 102.29255676269531
+          "norm": 103.41481018066406
         },
         "5": {
-          "mean_activation": 0.0997842475771904,
-          "std_activation": 2.9823832511901855,
+          "mean_activation": 0.08987334370613098,
+          "std_activation": 3.05340313911438,
           "sparsity": 0.0,
-          "norm": 106.69830322265625
+          "norm": 109.2374038696289
         },
         "6": {
-          "mean_activation": 0.09443668276071548,
-          "std_activation": 2.774996280670166,
+          "mean_activation": 0.08584701269865036,
+          "std_activation": 2.8216159343719482,
           "sparsity": 0.0,
-          "norm": 99.31735229492188
+          "norm": 100.9779052734375
         },
         "7": {
-          "mean_activation": 0.11914031952619553,
-          "std_activation": 3.1756372451782227,
+          "mean_activation": 0.11148766428232193,
+          "std_activation": 3.1988911628723145,
           "sparsity": 0.0,
-          "norm": 113.48697662353516
+          "norm": 114.3990249633789
         },
         "8": {
-          "mean_activation": 0.08743086457252502,
-          "std_activation": 2.8069698810577393,
+          "mean_activation": 0.08331490308046341,
+          "std_activation": 2.7876787185668945,
           "sparsity": 0.0,
-          "norm": 100.38614654541016
+          "norm": 99.74373626708984
         },
         "9": {
-          "mean_activation": 0.10511335730552673,
-          "std_activation": 3.230048656463623,
+          "mean_activation": 0.10594647377729416,
+          "std_activation": 3.2001566886901855,
           "sparsity": 0.0,
-          "norm": 115.39111328125
+          "norm": 114.46040344238281
         },
         "10": {
-          "mean_activation": 0.036214686930179596,
-          "std_activation": 3.3224539756774902,
+          "mean_activation": 0.05058104544878006,
+          "std_activation": 3.3244736194610596,
           "sparsity": 0.0,
-          "norm": 118.73014831542969
+          "norm": 118.883544921875
         },
         "11": {
-          "mean_activation": 0.055913496762514114,
-          "std_activation": 3.183307409286499,
+          "mean_activation": 0.0634351596236229,
+          "std_activation": 3.1396992206573486,
           "sparsity": 0.0,
-          "norm": 113.79073333740234
+          "norm": 112.19282531738281
         },
         "12": {
-          "mean_activation": 0.07005099952220917,
-          "std_activation": 3.1697890758514404,
+          "mean_activation": 0.08461207896471024,
+          "std_activation": 3.0866453647613525,
           "sparsity": 0.0,
-          "norm": 113.320068359375
+          "norm": 110.40677642822266
         },
         "13": {
-          "mean_activation": 0.03086758218705654,
-          "std_activation": 3.7616899013519287,
+          "mean_activation": 0.04075559228658676,
+          "std_activation": 3.725235939025879,
           "sparsity": 0.0,
-          "norm": 134.52395629882812
+          "norm": 133.2219696044922
         },
         "14": {
-          "mean_activation": 0.03425003960728645,
-          "std_activation": 3.7040340900421143,
+          "mean_activation": 0.05640067905187607,
+          "std_activation": 3.7105772495269775,
           "sparsity": 0.0,
-          "norm": 132.43077087402344
+          "norm": 132.66107177734375
         },
         "15": {
-          "mean_activation": 0.017475675791502,
-          "std_activation": 4.160010814666748,
+          "mean_activation": 0.04708133265376091,
+          "std_activation": 4.158066272735596,
           "sparsity": 0.0,
-          "norm": 148.76583862304688
+          "norm": 148.7038116455078
         },
         "16": {
-          "mean_activation": 0.019536228850483894,
-          "std_activation": 4.541772842407227,
+          "mean_activation": 0.04387229308485985,
+          "std_activation": 4.544760704040527,
           "sparsity": 0.0,
-          "norm": 162.41159057617188
+          "norm": 162.5352325439453
         },
         "17": {
-          "mean_activation": 0.03661232814192772,
-          "std_activation": 4.75626802444458,
+          "mean_activation": 0.06393332779407501,
+          "std_activation": 4.756832122802734,
           "sparsity": 0.0,
-          "norm": 170.0883026123047
+          "norm": 170.1177520751953
         },
         "18": {
-          "mean_activation": 0.027680683881044388,
-          "std_activation": 5.025416374206543,
+          "mean_activation": 0.05255686491727829,
+          "std_activation": 5.049075603485107,
           "sparsity": 0.0,
-          "norm": 179.69192504882812
+          "norm": 180.5475616455078
         },
         "19": {
-          "mean_activation": 0.018482813611626625,
-          "std_activation": 5.396442413330078,
+          "mean_activation": 0.03964897617697716,
+          "std_activation": 5.433420658111572,
           "sparsity": 0.0,
-          "norm": 192.94149780273438
+          "norm": 194.2668914794922
         },
         "20": {
-          "mean_activation": 0.018562020733952522,
-          "std_activation": 5.6481099128723145,
+          "mean_activation": 0.03503895923495293,
+          "std_activation": 5.691854000091553,
           "sparsity": 0.0,
-          "norm": 201.91818237304688
+          "norm": 203.4961700439453
         },
         "21": {
-          "mean_activation": -0.0005601501325145364,
-          "std_activation": 5.921507358551025,
+          "mean_activation": 0.015324363484978676,
+          "std_activation": 5.967913627624512,
           "sparsity": 0.0,
-          "norm": 211.68435668945312
+          "norm": 213.3559112548828
         },
         "22": {
-          "mean_activation": 0.023939047008752823,
-          "std_activation": 6.568256378173828,
+          "mean_activation": 0.038011178374290466,
+          "std_activation": 6.634530544281006,
           "sparsity": 0.0,
-          "norm": 234.8121795654297
+          "norm": 237.1786651611328
         },
         "23": {
-          "mean_activation": 0.002645196858793497,
-          "std_activation": 7.362491130828857,
+          "mean_activation": 0.01153639517724514,
+          "std_activation": 7.542155742645264,
           "sparsity": 0.0,
-          "norm": 263.25787353515625
+          "norm": 269.477294921875
         },
         "24": {
-          "mean_activation": -0.0008967936155386269,
-          "std_activation": 0.9189180731773376,
+          "mean_activation": -0.0009041371522471309,
+          "std_activation": 0.9100404381752014,
           "sparsity": 0.0,
-          "norm": 32.8746452331543
+          "norm": 32.552181243896484
         }
       },
-      "embeddings_saved": "outputs\\embeddings.pkl"
+      "embeddings_saved": "outputs/embeddings.pkl"
     },
     "sparse_autoencoders": {
       "0": {
-        "final_loss": 0.0285678431391716,
-        "final_sparsity": 503.8999938964844,
-        "explained_variance": 0.6142386198043823,
-        "model_saved": "outputs\\sae_layer_0.pt"
+        "final_loss": 0.023869074881076813,
+        "final_sparsity": 483.0,
+        "explained_variance": 0.6610293388366699,
+        "model_saved": "outputs/sae_layer_0.pt"
       },
       "12": {
-        "final_loss": 3.3766489028930664,
-        "final_sparsity": 522.0999755859375,
-        "explained_variance": 0.6639237403869629,
-        "model_saved": "outputs\\sae_layer_12.pt"
+        "final_loss": 3.3371238708496094,
+        "final_sparsity": 512.4000244140625,
+        "explained_variance": 0.6496951580047607,
+        "model_saved": "outputs/sae_layer_12.pt"
       },
       "23": {
-        "final_loss": 16.210548400878906,
-        "final_sparsity": 491.79998779296875,
-        "explained_variance": 0.7009307146072388,
-        "model_saved": "outputs\\sae_layer_23.pt"
+        "final_loss": 15.789957046508789,
+        "final_sparsity": 505.0,
+        "explained_variance": 0.7223825454711914,
+        "model_saved": "outputs/sae_layer_23.pt"
+      }
+    },
+    "feature_interpretation": {
+      "0": {
+        "n_interpretable_features": 616,
+        "avg_confidence": 0.6590909090909092,
+        "n_clusters": 10,
+        "summary_saved": "outputs/feature_interpretations_layer_0.csv"
+      },
+      "12": {
+        "n_interpretable_features": 578,
+        "avg_confidence": 0.7943252595155711,
+        "n_clusters": 10,
+        "summary_saved": "outputs/feature_interpretations_layer_12.csv"
+      },
+      "23": {
+        "n_interpretable_features": 507,
+        "avg_confidence": 0.8869822485207102,
+        "n_clusters": 10,
+        "summary_saved": "outputs/feature_interpretations_layer_23.csv"
       }
     }
   },
-  "error": "'module' object is not callable. Did you mean: 'tqdm.tqdm(...)'?"
+  "error": "'NucleotideTransformerWrapper' object is not callable"
 }

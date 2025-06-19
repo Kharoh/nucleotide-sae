@@ -1,11 +1,11 @@
-Bio==1.8.0
+Bio
 matplotlib==3.8.2
 networkx==3.2.1
 numpy==1.23.1
 pandas==2.3.0
 plotly==6.1.2
-scikit_learn==1.7.0
+scikit_learn
 seaborn==0.13.2
-torch==2.1.0
-tqdm==4.66.1
+torch
+tqdm
 transformers==4.35.2

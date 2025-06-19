@@ -85,7 +85,7 @@ class ReplacementModel(nn.Module):
         """
         # Get original model outputs with all hidden states
         with torch.no_grad():
-            original_outputs = self.original_model(
+            original_outputs = self.original_model.model(
                 input_ids=input_ids,
                 attention_mask=attention_mask,
                 output_hidden_states=True,

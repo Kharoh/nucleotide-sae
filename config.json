@@ -1,0 +1,57 @@
+{
+  "model": {
+    "model_name": "InstaDeepAI/nucleotide-transformer-500m-1000g",
+    "max_length": 1000,
+    "device": "cuda",
+    "cache_dir": "./model_cache"
+  },
+  "sae": {
+    "dictionary_size": 16384,
+    "sparsity_penalty": 0.0001,
+    "learning_rate": 0.0003,
+    "batch_size": 1024,
+    "n_epochs": 50,
+    "validation_split": 0.1,
+    "feature_threshold": 0.000001
+  },
+  "attribution": {
+    "n_attribution_steps": 1000,
+    "attribution_method": "integrated_gradients",
+    "baseline_method": "zero",
+    "noise_level": 0.1
+  },
+  "experiment": {
+    "output_dir": "./outputs",
+    "log_dir": "./logs",
+    "n_sequences_analysis": 1000,
+    "intervention_strength": 2.0,
+    "top_k_features": 50,
+    "random_seed": 42
+  },
+  "visualization": {
+    "figure_size": [12, 8],
+    "dpi": 300,
+    "color_palette": "viridis",
+    "save_format": "png",
+    "interactive_plots": true
+  },
+  "data": {
+    "sequence_examples": [
+      "ATGCGATCGTAGCTGATCGATCGATCGATCG",
+      "TATAATGCGATCGTAGCTGATCGATCGATCG",
+      "ATGCGATCGTAGCTGATCGATCGCCCGGGAT",
+      "ATGAAAGGATCCGATCGATCGATCGATCGAT",
+      "ATGCGATCGTAGCTGATCGATCGATCGTAAA"
+    ],
+    "motif_annotations": null,
+    "genomic_regions": [
+      "promoter",
+      "enhancer",
+      "exon",
+      "intron",
+      "3_prime_utr",
+      "5_prime_utr",
+      "intergenic"
+    ]
+  }
+}

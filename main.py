@@ -14,6 +14,7 @@ from pathlib import Path
 from typing import List, Dict, Any
 import sys
 import os
+os.environ['PYTORCH_CUDA_ALLOC_CONF'] = 'max_split_size_mb:512'
 
 # Add project root to path
 sys.path.append(os.path.dirname(os.path.abspath(__file__)))
@@ -146,12 +147,12 @@ def run_quick_demo() -> Dict[str, Any]:
 
     # Create configuration for demo
     config = Config()
-    config.experiment.n_sequences_analysis = 10  # Smaller for demo
+    config.experiment.n_sequences_analysis = 5  # Reduced for demo
     config.sae.n_epochs = 5  # Fewer epochs for demo
     config.sae.dictionary_size = 1024  # Smaller dictionary
 
     # Create sample sequences
-    sequences = create_sample_sequences(n_sequences=10, length=100)
+    sequences = create_sample_sequences(n_sequences=5, length=100)
 
     # Initialize analyzer
     analyzer = NucleotideBiologyAnalyzer(config)

@@ -46,6 +46,9 @@ class NucleotideTransformerWrapper:
             model_name, cache_dir=cache_dir, output_hidden_states=True
         ).to(device)
 
+        # Print VRAM usage after model is loaded
+        self.print_vram_usage("After model load")
+
         # Get model configuration
         self.config = self.model.config
         self.n_layers = self.config.num_hidden_layers
@@ -55,6 +58,15 @@ class NucleotideTransformerWrapper:
         logger.info(
             f"Model loaded: {self.n_layers} layers, {self.hidden_size} hidden size"
         )
+
+    def print_vram_usage(self, message: str = ""): 
+        """Print the current and max VRAM used by the model on the selected device."""
+        if torch.cuda.is_available() and self.device.startswith("cuda"):
+            allocated = torch.cuda.memory_allocated(self.device) / 1024 ** 2
+            max_allocated = torch.cuda.max_memory_allocated(self.device) / 1024 ** 2
+            logger.info(f"[VRAM] {message} Current: {allocated:.2f} MB, Max: {max_allocated:.2f} MB")
+        else:
+            logger.info(f"[VRAM] {message} CUDA not available or not using GPU.")
 
     def tokenize_sequences(
         self, sequences: List[str], max_length: Optional[int] = None
@@ -190,9 +202,27 @@ class NucleotideTransformerWrapper:
         """
         logger.info(f"Analyzing representations for {len(sequences)} sequences")
 
-        # Get embeddings from all layers
-        layer_embeddings = self.get_all_layer_embeddings(sequences, pooling="mean")
-        attention_weights = self.get_attention_weights(sequences)
+        # Get embeddings from all layers, one sequence at a time, and print VRAM usage
+        layer_embeddings = {}
+        attention_weights = {}
+        for idx, seq in enumerate(sequences):
+            single_layer_embeddings = self.get_all_layer_embeddings([seq], pooling="mean")
+            single_attention_weights = self.get_attention_weights([seq])
+            for layer_idx, emb in single_layer_embeddings.items():
+                if layer_idx not in layer_embeddings:
+                    layer_embeddings[layer_idx] = []
+                layer_embeddings[layer_idx].append(emb)
+            for layer_idx, attn in single_attention_weights.items():
+                if layer_idx not in attention_weights:
+                    attention_weights[layer_idx] = []
+                attention_weights[layer_idx].append(attn)
+            self.print_vram_usage(f"After loading sequence {idx+1}/{len(sequences)}")
+
+        # Stack embeddings and attention weights for each layer
+        for layer_idx in layer_embeddings:
+            layer_embeddings[layer_idx] = torch.cat(layer_embeddings[layer_idx], dim=0)
+        for layer_idx in attention_weights:
+            attention_weights[layer_idx] = torch.cat(attention_weights[layer_idx], dim=0)
 
         # Compute layer-wise statistics
         layer_stats = {}

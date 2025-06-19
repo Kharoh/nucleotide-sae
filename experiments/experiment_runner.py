@@ -139,8 +139,14 @@ class NucleotideBiologyAnalyzer:
         """Extract embeddings from all layers."""
         logger.info(f"Extracting embeddings from {len(sequences)} sequences")
 
+        # Print VRAM usage right before extracting embeddings (after model load, before heavy tensor ops)
+        self.nucleotide_model.print_vram_usage("Before extracting embeddings (demo debug)")
+
         # Analyze sequence representations
         analysis = self.nucleotide_model.analyze_sequence_representations(sequences)
+
+        # Print VRAM usage after embeddings extraction
+        self.nucleotide_model.print_vram_usage("After embeddings extraction")
 
         # Save embeddings for SAE training
         embeddings_path = self.output_dir / "embeddings.pkl"
@@ -198,6 +204,9 @@ class NucleotideBiologyAnalyzer:
                 # Train
                 metrics = trainer.train(dataloader, self.config.sae.n_epochs)
 
+                # Print VRAM usage after SAE training
+                self.nucleotide_model.print_vram_usage("After SAE training")
+
                 # Save model
                 sae_path = self.output_dir / f"sae_layer_{layer_idx}.pt"
                 torch.save(sae.state_dict(), sae_path)
@@ -241,6 +250,9 @@ class NucleotideBiologyAnalyzer:
             interpretations = self.feature_interpreter.interpret_all_features(
                 layer_idx, sequences, min_activation=0.05
             )
+
+            # Print VRAM usage after feature interpretation
+            self.nucleotide_model.print_vram_usage("After feature interpretation")
 
             # Create summary
             summary_df = self.feature_interpreter.create_feature_summary(
@@ -301,6 +313,9 @@ class NucleotideBiologyAnalyzer:
                 [seq], target_layer, target_feature
             )
 
+            # Print VRAM usage after attribution graph construction
+            self.nucleotide_model.print_vram_usage("After attribution graph construction")
+
             # Save graph
             graph_path = self.output_dir / f"attribution_graph_seq_{i}.pkl"
             with open(graph_path, "wb") as f:
@@ -355,6 +370,9 @@ class NucleotideBiologyAnalyzer:
             amplification_result = self.interventioner.test_feature_amplification(
                 test_sequences, layer_idx, top_features, amplification_strength=2.0
             )
+
+            # Print VRAM usage after intervention experiments
+            self.nucleotide_model.print_vram_usage("After intervention experiments")
 
             intervention_results[layer_idx] = {
                 "suppression_effect": suppression_result.effect_size,
