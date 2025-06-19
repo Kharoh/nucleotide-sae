@@ -1,0 +1,192 @@
+{
+  "timestamp": "2025-06-19T21:23:21.508739",
+  "config": {
+    "model": "ModelConfig(model_name='InstaDeepAI/nucleotide-transformer-500m-1000g', max_length=1000, device='cpu', cache_dir='./model_cache')",
+    "sae": "SAEConfig(dictionary_size=1024, sparsity_penalty=0.0001, learning_rate=0.0003, batch_size=1024, n_epochs=5, validation_split=0.1, feature_threshold=1e-06)",
+    "attribution": "AttributionConfig(n_attribution_steps=1000, attribution_method='integrated_gradients', baseline_method='zero', noise_level=0.1)",
+    "experiment": "ExperimentConfig(output_dir='./outputs', log_dir='./logs', n_sequences_analysis=10, intervention_strength=2.0, top_k_features=50, random_seed=42)",
+    "visualization": "VisualizationConfig(figure_size=(12, 8), dpi=300, color_palette='viridis', save_format='png', interactive_plots=True)",
+    "data": "DataConfig(sequence_examples=['ATGCGATCGTAGCTGATCGATCGATCGATCG', 'TATAATGCGATCGTAGCTGATCGATCGATCG', 'ATGCGATCGTAGCTGATCGATCGCCCGGGAT', 'ATGAAAGGATCCGATCGATCGATCGATCGAT', 'ATGCGATCGTAGCTGATCGATCGATCGTAAA'], motif_annotations=None, genomic_regions=['promoter', 'enhancer', 'exon', 'intron', '3_prime_utr', '5_prime_utr', 'intergenic'])"
+  },
+  "sequences_analyzed": 10,
+  "stages": {
+    "embeddings": {
+      "n_layers": 24,
+      "hidden_size": 1280,
+      "layer_statistics": {
+        "0": {
+          "mean_activation": -0.0036038372199982405,
+          "std_activation": 0.27207517623901367,
+          "sparsity": 0.0,
+          "norm": 9.73298454284668
+        },
+        "1": {
+          "mean_activation": 0.06008258834481239,
+          "std_activation": 2.847132682800293,
+          "sparsity": 0.0,
+          "norm": 101.8428955078125
+        },
+        "2": {
+          "mean_activation": 0.09552787989377975,
+          "std_activation": 2.7647249698638916,
+          "sparsity": 0.0,
+          "norm": 98.82044982910156
+        },
+        "3": {
+          "mean_activation": 0.09868541359901428,
+          "std_activation": 2.796396017074585,
+          "sparsity": 0.0,
+          "norm": 100.0724105834961
+        },
+        "4": {
+          "mean_activation": 0.09554305672645569,
+          "std_activation": 2.8578877449035645,
+          "sparsity": 0.0,
+          "norm": 102.29255676269531
+        },
+        "5": {
+          "mean_activation": 0.0997842475771904,
+          "std_activation": 2.9823832511901855,
+          "sparsity": 0.0,
+          "norm": 106.69830322265625
+        },
+        "6": {
+          "mean_activation": 0.09443668276071548,
+          "std_activation": 2.774996280670166,
+          "sparsity": 0.0,
+          "norm": 99.31735229492188
+        },
+        "7": {
+          "mean_activation": 0.11914031952619553,
+          "std_activation": 3.1756372451782227,
+          "sparsity": 0.0,
+          "norm": 113.48697662353516
+        },
+        "8": {
+          "mean_activation": 0.08743086457252502,
+          "std_activation": 2.8069698810577393,
+          "sparsity": 0.0,
+          "norm": 100.38614654541016
+        },
+        "9": {
+          "mean_activation": 0.10511335730552673,
+          "std_activation": 3.230048656463623,
+          "sparsity": 0.0,
+          "norm": 115.39111328125
+        },
+        "10": {
+          "mean_activation": 0.036214686930179596,
+          "std_activation": 3.3224539756774902,
+          "sparsity": 0.0,
+          "norm": 118.73014831542969
+        },
+        "11": {
+          "mean_activation": 0.055913496762514114,
+          "std_activation": 3.183307409286499,
+          "sparsity": 0.0,
+          "norm": 113.79073333740234
+        },
+        "12": {
+          "mean_activation": 0.07005099952220917,
+          "std_activation": 3.1697890758514404,
+          "sparsity": 0.0,
+          "norm": 113.320068359375
+        },
+        "13": {
+          "mean_activation": 0.03086758218705654,
+          "std_activation": 3.7616899013519287,
+          "sparsity": 0.0,
+          "norm": 134.52395629882812
+        },
+        "14": {
+          "mean_activation": 0.03425003960728645,
+          "std_activation": 3.7040340900421143,
+          "sparsity": 0.0,
+          "norm": 132.43077087402344
+        },
+        "15": {
+          "mean_activation": 0.017475675791502,
+          "std_activation": 4.160010814666748,
+          "sparsity": 0.0,
+          "norm": 148.76583862304688
+        },
+        "16": {
+          "mean_activation": 0.019536228850483894,
+          "std_activation": 4.541772842407227,
+          "sparsity": 0.0,
+          "norm": 162.41159057617188
+        },
+        "17": {
+          "mean_activation": 0.03661232814192772,
+          "std_activation": 4.75626802444458,
+          "sparsity": 0.0,
+          "norm": 170.0883026123047
+        },
+        "18": {
+          "mean_activation": 0.027680683881044388,
+          "std_activation": 5.025416374206543,
+          "sparsity": 0.0,
+          "norm": 179.69192504882812
+        },
+        "19": {
+          "mean_activation": 0.018482813611626625,
+          "std_activation": 5.396442413330078,
+          "sparsity": 0.0,
+          "norm": 192.94149780273438
+        },
+        "20": {
+          "mean_activation": 0.018562020733952522,
+          "std_activation": 5.6481099128723145,
+          "sparsity": 0.0,
+          "norm": 201.91818237304688
+        },
+        "21": {
+          "mean_activation": -0.0005601501325145364,
+          "std_activation": 5.921507358551025,
+          "sparsity": 0.0,
+          "norm": 211.68435668945312
+        },
+        "22": {
+          "mean_activation": 0.023939047008752823,
+          "std_activation": 6.568256378173828,
+          "sparsity": 0.0,
+          "norm": 234.8121795654297
+        },
+        "23": {
+          "mean_activation": 0.002645196858793497,
+          "std_activation": 7.362491130828857,
+          "sparsity": 0.0,
+          "norm": 263.25787353515625
+        },
+        "24": {
+          "mean_activation": -0.0008967936155386269,
+          "std_activation": 0.9189180731773376,
+          "sparsity": 0.0,
+          "norm": 32.8746452331543
+        }
+      },
+      "embeddings_saved": "outputs\\embeddings.pkl"
+    },
+    "sparse_autoencoders": {
+      "0": {
+        "final_loss": 0.0285678431391716,
+        "final_sparsity": 503.8999938964844,
+        "explained_variance": 0.6142386198043823,
+        "model_saved": "outputs\\sae_layer_0.pt"
+      },
+      "12": {
+        "final_loss": 3.3766489028930664,
+        "final_sparsity": 522.0999755859375,
+        "explained_variance": 0.6639237403869629,
+        "model_saved": "outputs\\sae_layer_12.pt"
+      },
+      "23": {
+        "final_loss": 16.210548400878906,
+        "final_sparsity": 491.79998779296875,
+        "explained_variance": 0.7009307146072388,
+        "model_saved": "outputs\\sae_layer_23.pt"
+      }
+    }
+  },
+  "error": "'module' object is not callable. Did you mean: 'tqdm.tqdm(...)'?"
+}

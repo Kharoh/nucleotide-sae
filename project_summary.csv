@@ -1,0 +1,13 @@
+filename,type,lines,description
+requirements.txt,Dependencies,12,"Python package dependencies including torch, transformers, numpy, pandas, matplotlib, etc."
+config.py,Configuration,126,"Configuration classes for model, SAE, attribution, experiment, and visualization settings"
+nucleotide_transformer.py,Model,224,Wrapper for nucleotide-transformer-500m-1000g with embedding extraction and analysis
+sparse_autoencoder.py,Model,373,Sparse autoencoder implementation with training utilities for feature discovery
+attribution_graphs.py,Analysis,508,Attribution graph construction and circuit tracing following Anthropic's methodology
+feature_analysis.py,Analysis,441,Feature interpretation through motif detection and biological function inference
+interventions.py,Analysis,606,Intervention experiments for causal hypothesis validation
+experiment_runner.py,Pipeline,455,Main pipeline orchestrator that coordinates all analysis stages
+data_processing.py,Utilities,446,"DNA sequence processing, validation, and dataset management utilities"
+visualization.py,Utilities,537,"Comprehensive visualization tools for results, graphs, and analysis dashboards"
+main.py,Entry Point,445,Command-line interface and main execution script with argument parsing
+README.md,Documentation,~400,"Comprehensive documentation with installation, usage, and methodology details"
